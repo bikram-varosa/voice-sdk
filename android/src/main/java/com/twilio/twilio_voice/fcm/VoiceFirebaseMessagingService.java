@@ -75,12 +75,16 @@ public class VoiceFirebaseMessagingService extends FirebaseMessagingService {
             boolean valid = Voice.handleMessage(this, remoteMessage.getData(), new MessageListener() {
                 @Override
                 public void onCallInvite(@NonNull CallInvite callInvite) {
-//                    try {
-//                        Bundle extras = new Bundle();
-//                        extras.putString(Constants.VALUE_FROM_PHONE_NUMBER, remoteMessage.getData().containsKey("twi_from") ?  remoteMessage.getData().get("twi_from") : "");
-//                    } catch (Exception e) {
-//
-//                    }
+                    try {
+                        Context context = getApplicationContext();
+                        SharedPreferences preferences = context.getSharedPreferences(TwilioPreferences, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString(Constants.VALUE_FROM_PHONE_NUMBER, remoteMessage.getData().containsKey("twi_from") ? remoteMessage.getData().get("twi_from") : "");
+                        editor.apply();
+                        preferences.(Constants.VALUE_FROM_PHONE_NUMBER, remoteMessage.getData().containsKey("twi_from") ?  remoteMessage.getData().get("twi_from") : "");
+                    } catch (Exception e) {
+
+                    }
 
                     final int notificationId = (int) System.currentTimeMillis();
                     handleInvite(callInvite, notificationId);
