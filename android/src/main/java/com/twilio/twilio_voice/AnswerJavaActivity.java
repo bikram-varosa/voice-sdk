@@ -100,7 +100,6 @@ public class AnswerJavaActivity extends AppCompatActivity {
             String action = intent.getAction();
             activeCallInvite = intent.getParcelableExtra(Constants.INCOMING_CALL_INVITE);
             activeCallNotificationId = intent.getIntExtra(Constants.INCOMING_CALL_NOTIFICATION_ID, 0);
-            tvCallStatus.setText(R.string.incoming_call_title);
             Log.d(TAG, action);
             switch (action) {
                 case Constants.ACTION_INCOMING_CALL:
@@ -154,6 +153,9 @@ public class AnswerJavaActivity extends AppCompatActivity {
             SharedPreferences preferences = getApplicationContext().getSharedPreferences(TwilioPreferences, Context.MODE_PRIVATE);
             String caller = preferences.getString(fromId, preferences.getString("defaultCaller", getString(R.string.unknown_caller)));
             tvUserName.setText(caller);
+            Bundle extras = new Bundle();
+            String phoneNumber = extras.getString(Constants.VALUE_FROM_PHONE_NUMBER);
+            tvCallStatus.setText(phoneNumber);
             btnAnswer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

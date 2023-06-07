@@ -21,4 +21,7 @@ public class Constants {
     public static final String ACTION_CANCEL_CALL = "ACTION_CANCEL_CALL";
     public static final String ACTION_RETURN_CALL = "ACTION_RETURN_CALL";
     public static final String ACTION_FCM_TOKEN = "ACTION_FCM_TOKEN";
+
+    public static final String VALUE_FROM_PHONE_NUMBER = "VALUE_FROM_PHONE_NUMBER";
 }
+
