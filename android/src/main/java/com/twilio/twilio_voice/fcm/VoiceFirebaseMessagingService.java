@@ -76,8 +76,12 @@ public class VoiceFirebaseMessagingService extends FirebaseMessagingService {
                 @Override
                 public void onCallInvite(@NonNull CallInvite callInvite) {
                     /// saving from phone number by sijan joshi
-                    Bundle extras = new Bundle();
-                    extras.putString(Constants.VALUE_FROM_PHONE_NUMBER, remoteMessage.getData().get("twi_from"));
+                    try {
+                        Bundle extras = new Bundle();
+                        extras.putString(Constants.VALUE_FROM_PHONE_NUMBER, remoteMessage.getData().containsKey("twi_from") ?  remoteMessage.getData().get("twi_from") : "");
+                    } catch (Exception e) {
+
+                    }
 
                     final int notificationId = (int) System.currentTimeMillis();
                     handleInvite(callInvite, notificationId);

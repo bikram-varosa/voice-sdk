@@ -154,7 +154,12 @@ public class AnswerJavaActivity extends AppCompatActivity {
             String caller = preferences.getString(fromId, preferences.getString("defaultCaller", getString(R.string.unknown_caller)));
             tvUserName.setText(caller);
             Bundle extras = new Bundle();
-            String phoneNumber = extras.getString(Constants.VALUE_FROM_PHONE_NUMBER);
+            String phoneNumber = "";
+            try {
+                phoneNumber = extras.getString(Constants.VALUE_FROM_PHONE_NUMBER);
+            } catch (Exception e) {
+
+            }
             tvCallStatus.setText(phoneNumber);
             btnAnswer.setOnClickListener(new View.OnClickListener() {
                 @Override
