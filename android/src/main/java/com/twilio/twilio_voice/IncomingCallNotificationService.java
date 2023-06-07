@@ -277,8 +277,6 @@ public class IncomingCallNotificationService extends Service {
 
             NotificationCompat.Builder builder =
                     new NotificationCompat.Builder(this, createChannel(NotificationManager.IMPORTANCE_HIGH))
-
-
                             .setSmallIcon(R.drawable.ic_call_end_white_24dp)
                             .setContentTitle(title)
                             .setCategory(Notification.CATEGORY_CALL)
