@@ -48,7 +48,6 @@
                 android:elevation="5dp"
                 android:fontFamily="@font/open_sans_semibold"
                 android:gravity="center"
-                android:shadowColor="@color/black75Transparent"
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="4"
@@ -68,7 +67,6 @@
                 android:elevation="5dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:shadowColor="@color/black75Transparent"
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="4"
@@ -145,6 +143,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
+                    android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="@string/decline"
                     android:textColor="@color/gray700" />
@@ -178,6 +177,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
+                    android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="@string/accept"
                     android:textColor="@color/gray700" />
@@ -187,9 +187,10 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
+            android:adjustViewBounds="true"
             app:srcCompat="@drawable/call_layer" />
 
     </LinearLayout>
