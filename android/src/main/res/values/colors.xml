@@ -12,5 +12,11 @@
     <color name="grayRadiobuttonBg">#eeeeef</color>
     <color name="grayHeaderItem">#F1F2F3</color>
     <color name="colorGrayBlur">#8c939393</color>
-
+    <!--  gray  -->
+    <color name="gray900">#101828</color>
+    <color name="gray700">#344054</color>
+    <!--  error -->
+    <color name="error500">#F04438</color>
+    <!--  success  -->
+    <color name="success500">#12B76A</color>
 </resources>

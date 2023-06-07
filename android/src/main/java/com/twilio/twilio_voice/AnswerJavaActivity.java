@@ -154,7 +154,6 @@ public class AnswerJavaActivity extends AppCompatActivity {
             SharedPreferences preferences = getApplicationContext().getSharedPreferences(TwilioPreferences, Context.MODE_PRIVATE);
             String caller = preferences.getString(fromId, preferences.getString("defaultCaller", getString(R.string.unknown_caller)));
             tvUserName.setText(caller);
-//            tvCallStatus.setText("this is test");
             btnAnswer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
