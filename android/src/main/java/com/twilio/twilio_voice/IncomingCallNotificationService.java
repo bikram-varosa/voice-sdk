@@ -212,14 +212,8 @@ public class IncomingCallNotificationService extends Service {
         activeCallIntent.putExtra(Constants.ACCEPT_CALL_ORIGIN, origin);
         activeCallIntent.setAction(Constants.ACTION_ACCEPT);
         if (origin == 0 && !isAppVisible()) {
-//            startActivity(activeCallIntent);
-//            Log.i(TAG, "starting activity");
-            // test
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                startForegroundService(activeCallIntent);
-            } else {
-                startService(activeCallIntent);
-            }
+            startActivity(activeCallIntent);
+            Log.i(TAG, "starting activity");
         } else {
             LocalBroadcastManager.getInstance(this).sendBroadcast(activeCallIntent);
             Log.i(TAG, "sending broadcast intent");
