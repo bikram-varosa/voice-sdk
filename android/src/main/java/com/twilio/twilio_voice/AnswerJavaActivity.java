@@ -1,5 +1,7 @@
 package com.twilio.twilio_voice;
 
+import static com.twilio.twilio_voice.IncomingCallNotificationService.TwilioPreferences;
+
 import android.Manifest;
 import android.app.KeyguardManager;
 import android.app.NotificationManager;
@@ -154,14 +156,13 @@ public class AnswerJavaActivity extends AppCompatActivity {
             SharedPreferences preferences = context.getSharedPreferences(TwilioPreferences, Context.MODE_PRIVATE);
             String caller = preferences.getString(fromId, preferences.getString("defaultCaller", getString(R.string.unknown_caller)));
             tvUserName.setText(caller);
-//            Bundle extras = new Bundle();
-//            String phoneNumber = "";
-//            try {
-//                phoneNumber = extras.getString(Constants.VALUE_FROM_PHONE_NUMBER);
-//            } catch (Exception e) {
-//
-//            }
-            tvCallStatus.setText("Incomming Call...");
+            String phoneNumber = "";
+            try {
+                phoneNumber = preferences.getString(Constants.VALUE_FROM_PHONE_NUMBER, "Incomming Call...");
+            } catch (Exception e) {
+
+            }
+            tvCallStatus.setText(phoneNumber);
             btnAnswer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
