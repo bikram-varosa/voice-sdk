@@ -81,7 +81,6 @@ public class VoiceFirebaseMessagingService extends FirebaseMessagingService {
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putString(Constants.VALUE_FROM_PHONE_NUMBER, remoteMessage.getData().containsKey("twi_from") ? remoteMessage.getData().get("twi_from") : "");
                         editor.apply();
-                        preferences.(Constants.VALUE_FROM_PHONE_NUMBER, remoteMessage.getData().containsKey("twi_from") ?  remoteMessage.getData().get("twi_from") : "");
                     } catch (Exception e) {
 
                     }
