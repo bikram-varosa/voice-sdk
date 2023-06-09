@@ -42,7 +42,7 @@ public class IncomingCallNotificationService extends Service {
                     handleIncomingCall(callInvite, notificationId);
                     break;
                 case Constants.ACTION_ACCEPT:
-                    int origin = intent.getIntExtra(Constants.ACCEPT_CALL_ORIGIN, 0);
+                    int origin = intent.getIntExtra(Constants.ACCEPT_CALL_ORIGIN, 10);
                     Log.d(TAG, "onStartCommand-ActionAccept" + origin);
                     accept(callInvite, notificationId, origin);
                     break;
@@ -154,7 +154,7 @@ public class IncomingCallNotificationService extends Service {
         acceptIntent.putExtra(Constants.ACCEPT_CALL_ORIGIN, 0);
         acceptIntent.putExtra(Constants.INCOMING_CALL_INVITE, callInvite);
         acceptIntent.putExtra(Constants.INCOMING_CALL_NOTIFICATION_ID, notificationId);
-        PendingIntent piAcceptIntent = PendingIntent.getService(getApplicationContext(), 0, acceptIntent, flags);
+        PendingIntent piAcceptIntent = PendingIntent.getService(getApplicationContext(), 10, acceptIntent, flags);
 
         long[] mVibratePattern = new long[]{0, 400, 400, 400, 400, 400, 400, 400};
         Notification.Builder builder =
